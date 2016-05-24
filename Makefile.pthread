@@ -1,0 +1,14 @@
+PROGRAM = pthread_server
+OBJS = multithreadServer.o daemon_init.o error.o readline.o str_echo.o wrapsocket.o wrapstdio.o  
+
+PROGS = pthread_server
+LDFLAGS = -lpthread
+
+all: ${PROGS} 
+
+$(PROGRAM):$(OBJS)
+	${CC} ${CFLAGS} ${LDFLAGS} -o $@ ${OBJS} ${LIBS} ${LDLIBS}
+
+
+clean:
+	rm -f ${PROGS} ${CLEANFILES}

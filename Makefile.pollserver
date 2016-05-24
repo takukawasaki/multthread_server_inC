@@ -1,0 +1,14 @@
+PROGRAM = pollServer
+OBJS = pollServer.o daemon_init.o error.o readline.o str_echo.o wrapsocket.o wrapstdio.o  
+
+PROGS = pollServer
+
+
+all: ${PROGS} 
+
+$(PROGRAM):$(OBJS)
+	${CC} ${CFLAGS} -o $@ ${OBJS} ${LIBS}
+
+
+clean:
+	rm -f ${PROGS} ${CLEANFILES}
